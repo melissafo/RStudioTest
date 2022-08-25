@@ -1,18 +1,19 @@
 package workspace;
 
+import base.BaseTests;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import pages.LoginPage;
 import pages.WorkspacePage;
-import base.BaseTests;
+import utility.ReadConfig;
 
 public class WorkspaceTests extends BaseTests {
 
-    private String username = "melissa@focone.org";
-    private String password = "GAf52v#UAF#nXRV";
-    private String spaceName = "Test Space";
-    private String deleteText = "Delete " + spaceName;
+    private final String username = ReadConfig.getProperty("username");
+    private final String password = ReadConfig.getProperty("password");
+    private final String spaceName = "Test Space";
+    private final String deleteText = "Delete " + spaceName;
 
     @Test
     public void dialogOpenedWhenNewSpaceClicked() {
@@ -66,6 +67,6 @@ public class WorkspaceTests extends BaseTests {
         workspacePage.switchFrame();
         WebElement container = workspacePage.container();
         Assert.assertTrue(container.isDisplayed());
-        System.out.println("Assertion passed!");
+    //    System.out.println("Assertion passed!");
     }
 }
